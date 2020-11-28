@@ -2,6 +2,7 @@
 using namespace std;
 int main()
 {
-    cout<<"SMD"<<endl;
+    //Hell yea
+    cout<<"SMD ur mom"<<endl;
     return 0;
 }
