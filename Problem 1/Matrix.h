@@ -24,7 +24,7 @@ public:
     void set_matrix_elements(int r,int c,double val);// Setter Function
     Matrix& operator--();// Overloaded Decrement Operator
     const Matrix& operator=(const Matrix& x); // Overloaded Assignment Operator
-    Matrix& operator*(const Matrix& x); // Overloaded Multiplication Operator(Multiplies Each Row Element With The Corresponding Column Element Of The Second Matrix, They Must Be Of Compatible Sizes)
+    Matrix operator*(const Matrix& x); // Overloaded Multiplication Operator(Multiplies Each Row Element With The Corresponding Column Element Of The Second Matrix, They Must Be Of Compatible Sizes)
     Matrix& operator+=(const Matrix& x); // Overloaded Shorthand Additon Operator
     Matrix& operator-=(const Matrix& x); // Overloaded Shorthand Subtraction Operator
 

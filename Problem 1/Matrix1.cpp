@@ -164,13 +164,32 @@ Matrix & Matrix::operator-= (const Matrix & x)
 	return *this;
 }
 
-Matrix& Matrix::operator*(const Matrix& x)
+Matrix Matrix::operator*(const Matrix& x)
 {
     if(this->c!=x.r) // Condition For Multiplying 2 Matrices - The No. Of Columns In The First Matrix Must Be Equal To The No. Of Rows In The Second Matrix
     {
         cout<<"The Elements Cannot Be Multiplied Together";
         exit(1);
     }
+    int num_rows = this->r;
+    int num_columns = x.c;
+    Matrix product(num_rows,num_columns); 
+    for(int i=0;i<num_rows;++i)
+    {
+        for(int j=0;j<num_columns;++j)
+        {
+            int k = 0;
+            while(k<num_rows)
+            {
+                product.mtx[i][j]+=(this->mtx[i][k]*x.mtx[k][j]); // Multiplying The Row Elements Of The Calling Matrix With The Column Elements Of The 2nd Matrix
+                k++;
+            }
+        }
+    }
+
+    return product;
+
+
 
 
 }
