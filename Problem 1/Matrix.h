@@ -4,20 +4,7 @@ using namespace std;
 #define MATRIX_H
 class Matrix
 {
-friend const Matrix operator+(const Matrix &a1, const Matrix &a2){ //addition operator: adds the two objects in the argument
-    if(a1.r!=a2.r || a1.c!=a2.c){ // checking size, if size does not match then function directly returns false
-      cout<<"SIZE Mismatch!";
-      exit(1);
-    }
-    Matrix a3(a1.r,a1.c); //REVIEW!! is this object declaration correct?
-    
-    for(int i=0; i<a1.r; i++){
-    for(int j=0; j<a1.c; j++){ //Double for-loop to use all elements
-    a3.mtx[i][j]=a1.mtx[i][j]+a2.mtx[i][j];
-    }
-    }
-    return a3;
-}
+friend const Matrix operator+(const Matrix &a1, const Matrix &a2); //addition operator: adds the two objects in the argument
 friend ostream& operator<<(ostream& out, Matrix& x); // Overloaded Insertion Operator
 friend istream& operator>>(istream& in, Matrix& x); // Overloaded Extraction Operator 
 
@@ -46,4 +33,22 @@ private:
     int r,c;
 
 };
+
+
+
+const Matrix operator+(const Matrix &a1, const Matrix &a2)
+{ //addition operator: adds the two objects in the argument
+    if(a1.r!=a2.r || a1.c!=a2.c){ // checking size, if size does not match then function directly returns false
+      cout<<"SIZE Mismatch!";
+      exit(1);
+    }
+    Matrix a3(a1.r,a1.c); //REVIEW!! is this object declaration correct?
+    
+    for(int i=0; i<a1.r; i++){
+    for(int j=0; j<a1.c; j++){ //Double for-loop to use all elements
+    a3.mtx[i][j]=a1.mtx[i][j]+a2.mtx[i][j];
+    }
+    }
+    return a3;
+}
 #endif
