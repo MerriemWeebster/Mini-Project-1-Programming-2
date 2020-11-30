@@ -4,6 +4,6 @@ int main()
 {
     //Hell yea
     cout<<"SMD ur mom"<<endl;
-    system("pause");
+    // system("pause");
     return 0;
 }
