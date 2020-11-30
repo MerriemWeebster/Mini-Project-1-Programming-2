@@ -1,4 +1,4 @@
-#CMP-220 Mini-Project
+CMP-220 Mini-Project
 
 Contributors:
 1)Akchunya
