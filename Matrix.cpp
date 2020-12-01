@@ -1,68 +1,73 @@
- #include<iostream>
+#include<iostream>
 
- using namespace std;
- 
- //SAADs PART
- #include "Matrix.h"
-Matrix::~Matrix(){ // destructor
-    delete [] mtx;
-} 
-Matrix Matrix::operator-(){ //negate every element in the matrix
-for(int i=0; i<r; i++){
-    for(int j=0; j<c; j++){ //Double for-loop to multiply all elements
-        mtx[i][j]=mtx[i][j]*-1;
+using namespace std;
+
+//SAADs PART
+#include "Matrix.h"
+Matrix::~Matrix() 
+{ // destructor
+    for (int i = 0; i < r; i++)
+    {
+        delete mtx[i];
     }
+    delete[] mtx;
 }
+Matrix Matrix::operator-() { //negate every element in the matrix
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) { //Double for-loop to multiply all elements
+            mtx[i][j] = mtx[i][j] * -1;
+        }
+    }
     return *this; // for cascading
 }
-Matrix Matrix::operator+(const Matrix& x){
-if(r!=x.r || c!=x.c){ // checking size, if size does not match then function directly returns false
-      cout<<"SIZE Mismatch!";
-      exit(1);
+Matrix Matrix::operator+(const Matrix& x) {
+    if (r != x.r || c != x.c) { // checking size, if size does not match then function directly returns false
+        cout << "SIZE Mismatch!";
+        exit(1);
     }
-    
-    for(int i=0; i<r; i++){
-    for(int j=0; j<c; j++){ //Double for-loop to use all elements
-    mtx[i][j]=mtx[i][j]+x.mtx[i][j];
-    }
+
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) { //Double for-loop to use all elements
+            mtx[i][j] = mtx[i][j] + x.mtx[i][j];
+        }
     }
     return *this;
 }
 
-bool Matrix::operator==(const Matrix& x){
-        if(r!=x.r || c!=x.c){ // checking size, if size does not match then function directly returns false
-            cout<<"SIZE Mismatch!";
-            return false;
-        }
-        for(int i=0; i<r; i++){
-            for(int j=0; j<c; j++){ //double for loop to check every element
-            if(mtx[i][j]!=x.mtx[i][j]){ // condition, even if they are not equal once, loop will exit and false will be returned.
-                return false;
-            }
-            }   
-        }
-        return true; //otherwise, they are equal
+bool Matrix::operator==(const Matrix& x) {
+    if (r != x.r || c != x.c) { // checking size, if size does not match then function directly returns false
+        cout << "SIZE Mismatch!";
+        return false;
     }
-bool Matrix::operator!=(const Matrix& x){
-    if(r!=x.r || c!=x.c){ // checks if the size is equal. if they are not equal then function directly returns false.
-            cout<<"SIZE Mismatch!";
-            return false;
-        }
-        for(int i=0; i<r; i++){
-            for(int j=0; j<c; j++){
-            if(mtx[i][j]==x.mtx[i][j]){ // if they are equal even once, then the fucntion will exit loop and return false
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) { //double for loop to check every element
+            if (mtx[i][j] != x.mtx[i][j]) { // condition, even if they are not equal once, loop will exit and false will be returned.
                 return false;
             }
-            }   
         }
-        return true; // otherwise they are not equal
-    }// Overloaded Inequality Operator
+    }
+    return true; //otherwise, they are equal
+}
+bool Matrix::operator!=(const Matrix& x) {
+    if (r != x.r || c != x.c) { // checks if the size is equal. if they are not equal then function directly returns false.
+        cout << "SIZE Mismatch!";
+        return false;
+    }
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            if (mtx[i][j] == x.mtx[i][j]) { // if they are equal even once, then the fucntion will exit loop and return false
+                return false;
+            }
+        }
+    }
+    return true; // otherwise they are not equal
+}// Overloaded Inequality Operator
 
 
 
 //Author - Akchunya Chanchal
 
-Matrix Matrix::get_matrix_elements(int r,int c) // To Get The Value Of A Specific Element Of The Matrix
+Matrix Matrix::get_matrix_elements(int r, int c) // To Get The Value Of A Specific Element Of The Matrix
 {
     return this->mtx[r][c];
 }
@@ -75,9 +80,9 @@ void Matrix::set_matrix_elements(int r, int c, double val) // To Set The Value O
 
 Matrix& Matrix::operator--() // To Decrement Each Value In The Matrix 
 {
-    for(int i=0;i<r;++i) // To Loop Through The Rows
+    for (int i = 0; i < r; ++i) // To Loop Through The Rows
     {
-        for(int j=0;j<c;++j) // To Loop Through The Columns
+        for (int j = 0; j < c; ++j) // To Loop Through The Columns
         {
             --mtx[i][j]; // Decrementing The Element
         }
@@ -88,9 +93,9 @@ Matrix& Matrix::operator--() // To Decrement Each Value In The Matrix
 
 Matrix& Matrix::operator++() // To Increment Each Value In The Matrix 
 {
-    for(int i=0;i<r;++i) // To Loop Through The Rows
+    for (int i = 0; i < r; ++i) // To Loop Through The Rows
     {
-        for(int j=0;j<c;++j) // To Loop Through The Columns
+        for (int j = 0; j < c; ++j) // To Loop Through The Columns
         {
             ++mtx[i][j]; // Increment The Element
         }
@@ -102,20 +107,20 @@ Matrix& Matrix::operator++() // To Increment Each Value In The Matrix
 const Matrix& Matrix::operator=(const Matrix& x) // To Assign The Values Of A Matrix to Another Matrix 
 {
     if (this == &x) // Checking If The Matrices Are The Same
-	 {
-		 return *this;
-	 }
+    {
+        return *this;
+    }
 
-	 if (this->r != x.r || this->c != x.c) // Checking To See If The Two Matrices Have Equal Dimensions
-	 {
-		 for(int i=0;i<this->r;++i)
-         {
-             delete [] this->mtx[r]; // We Free Up The Memory From The Heap By Deleting Row By Row The Existing Array
-         }
-         delete[] this->mtx; // We Delete The Intial Matrix
-         
-        double**mtx = new double*[x.r];// We Intialise
-        for(int i=0;i<x.r;++i)         // The New Array
+    if (this->r != x.r || this->c != x.c) // Checking To See If The Two Matrices Have Equal Dimensions
+    {
+        for (int i = 0; i < this->r; ++i)
+        {
+            delete[] this->mtx[r]; // We Free Up The Memory From The Heap By Deleting Row By Row The Existing Array
+        }
+        delete[] this->mtx; // We Delete The Intial Matrix
+
+        double** mtx = new double* [x.r];// We Intialise
+        for (int i = 0; i < x.r; ++i)         // The New Array
         {                              // To The Size
             mtx[i] = new double[x.c];  // Of The Array
         }                              // To Be Copied
@@ -124,76 +129,76 @@ const Matrix& Matrix::operator=(const Matrix& x) // To Assign The Values Of A Ma
 
     }
 
-	 for (int i = 0; i < this->r; ++i)
-	 {
-		 for(int j=0;j< this->c;++j)
-         {
-             this->mtx[i][j] = x.mtx[i][j];
-         }
-	 }
+    for (int i = 0; i < this->r; ++i)
+    {
+        for (int j = 0; j < this->c; ++j)
+        {
+            this->mtx[i][j] = x.mtx[i][j];
+        }
+    }
 
-	 return *this;
+    return *this;
 }
 
-Matrix & Matrix::operator+= (const Matrix & x)
+Matrix& Matrix::operator+= (const Matrix& x)
 {
     if (this->r != x.r || this->c != x.c) // Checking To See If The Two Matrices Are Of Equal Dimensions
-	{
-		cout << "These Cannot Be Added";
-		exit(1);
-	}
+    {
+        cout << "These Cannot Be Added";
+        exit(1);
+    }
 
-	for (int i = 0; i < this->r; ++i)
-	{
-		for(int j=0; j<this->c; ++j)
+    for (int i = 0; i < this->r; ++i)
+    {
+        for (int j = 0; j < this->c; ++j)
         {
-            this->mtx[i][j]+=x.mtx[i][j]; // Adding The Matrix Values Of The Second Matrix To The Calling Matrix
+            this->mtx[i][j] += x.mtx[i][j]; // Adding The Matrix Values Of The Second Matrix To The Calling Matrix
         }
-	}
+    }
 
-	return *this;
+    return *this;
 
 
 
 }
 
-Matrix & Matrix::operator-= (const Matrix & x)
+Matrix& Matrix::operator-= (const Matrix& x)
 {
     if (this->r != x.r || this->c != x.c) // Checking To See If The Two Matrices Are Of Equal Dimensions
-	{
-		cout << "These Cannot Be Subtracted";
-		exit(1);
-	}
+    {
+        cout << "These Cannot Be Subtracted";
+        exit(1);
+    }
 
-	for (int i = 0; i < this->r; ++i)
-	{
-		for(int j=0; j<this->c; ++j)
+    for (int i = 0; i < this->r; ++i)
+    {
+        for (int j = 0; j < this->c; ++j)
         {
-            this->mtx[i][j]-=x.mtx[i][j]; // Subtracting The Matrix Values Of The Second Matrix To The Calling Matrix
+            this->mtx[i][j] -= x.mtx[i][j]; // Subtracting The Matrix Values Of The Second Matrix To The Calling Matrix
         }
-	}
+    }
 
-	return *this;
+    return *this;
 }
 
 Matrix Matrix::operator*(const Matrix& x)
 {
-    if(this->c!=x.r) // Condition For Multiplying 2 Matrices - The No. Of Columns In The First Matrix Must Be Equal To The No. Of Rows In The Second Matrix
+    if (this->c != x.r) // Condition For Multiplying 2 Matrices - The No. Of Columns In The First Matrix Must Be Equal To The No. Of Rows In The Second Matrix
     {
-        cout<<"The Elements Cannot Be Multiplied Together";
+        cout << "The Elements Cannot Be Multiplied Together";
         exit(1);
     }
     int num_rows = this->r;
     int num_columns = x.c;
-    Matrix product(num_rows,num_columns); 
-    for(int i=0;i<num_rows;++i)
+    Matrix product(num_rows, num_columns);
+    for (int i = 0; i < num_rows; ++i)
     {
-        for(int j=0;j<num_columns;++j)
+        for (int j = 0; j < num_columns; ++j)
         {
             int k = 0;
-            while(k<num_rows)
+            while (k < num_rows)
             {
-                product.mtx[i][j]+=(this->mtx[i][k]*x.mtx[k][j]); // Multiplying The Row Elements Of The Calling Matrix With The Column Elements Of The 2nd Matrix
+                product.mtx[i][j] += (this->mtx[i][k] * x.mtx[k][j]); // Multiplying The Row Elements Of The Calling Matrix With The Column Elements Of The 2nd Matrix
                 k++;
             }
         }
@@ -208,12 +213,12 @@ Matrix::Matrix(int row, int col) //default parameterized constructor
 {
     r = row;
     c = col;
-    mtx = new double * [row];
+    mtx = new double* [row];
     for (int i = 0; i < r; i++) //loop to dynamically allocate and initialize at the same time
     {
+        mtx[i] = new double[col];
         for (int j = 0; j < c; j++)
         {
-            mtx[i] = new double[col];
             mtx[i][j] = 0;
         }
     }
@@ -226,9 +231,9 @@ Matrix::Matrix(const Matrix& x) //copy constructor
     mtx = new double* [r];
     for (int i = 0; i < r; i++) //loop to dynamically allocate and copy at the same time
     {
+        mtx[i] = new double[c];
         for (int j = 0; j < c; j++)
         {
-            mtx[i] = new double[c];
             mtx[i][j] = x.mtx[i][j];
         }
     }

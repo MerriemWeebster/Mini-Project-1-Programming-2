@@ -40,12 +40,12 @@ class Matrix
         return diff;
     }
     //subtraction operator: subtracts the two objects in the argument
-    friend ostream& operator<<(ostream& out, Matrix& x)
+    friend ostream& operator<<(ostream& out, const Matrix& x)
         // Overloaded Insertion Operator
     {
         for (int i = 0; i < x.r; i++)
         {
-            for (int j = 0; j < x.c; i++)
+            for (int j = 0; j < x.c; j++)
             {
                 out << x.mtx[i][j] << " ";
             }
