@@ -1,15 +1,14 @@
-#include<iostream>
+#include <iostream>
 #include "Matrix.h"
-
-double SumMatrixElements (const Matrix &);
-
+using namespace std;
 int main()
 {
-    cout << "bruh";
-    return 0;
-}
-
-double SumMatrixElements (const Matrix & m)
-{
+	Matrix A;
+	Matrix B(2, 2);
+	Matrix C(B);
+	cin >> A;
+	cout << A << endl;
+	cout << B << endl;
+	cout << C << endl;
     return 0;
 }
