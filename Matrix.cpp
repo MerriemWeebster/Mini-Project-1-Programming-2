@@ -295,3 +295,15 @@ int Matrix::get_cols() const
 {
     return c;
 }
+
+Matrix Matrix::operator*(double a) //scalar multiplication
+{
+    for (int i = 0; i < r; i++) 
+    {
+        for (int j = 0; j < c; j++) 
+        {
+            mtx[i][j] = mtx[i][j] * a;
+        }
+    }
+    return *this;
+}

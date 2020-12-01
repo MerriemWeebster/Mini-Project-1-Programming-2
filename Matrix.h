@@ -88,6 +88,7 @@ public:
     Matrix operator*(const Matrix& x); // Overloaded Multiplication Operator(Multiplies Each Row Element With The Corresponding Column Element Of The Second Matrix, They Must Be Of Compatible Sizes)
     Matrix& operator+=(const Matrix& x); // Overloaded Shorthand Additon Operator
     Matrix& operator-=(const Matrix& x); // Overloaded Shorthand Subtraction Operator
+    Matrix operator*(double a); //scalar multiplication
 
 private:
     double** mtx;
