@@ -81,7 +81,7 @@ public:
     void set_matrix_elements(int r, int c, double val);// Setter Function
     void set_rows(int rows); //set rows
     void set_cols(int cols); //set cols
-    int get_rows() const; //get rows
+    int get_rows() const ; //get rows
     int get_cols() const; //get cols
     Matrix& operator--();// Overloaded Decrement Operator
     const Matrix& operator=(const Matrix& x); // Overloaded Assignment Operator
