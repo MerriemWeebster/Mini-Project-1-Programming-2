@@ -16,8 +16,8 @@ public:
     Matrix operator+(const Matrix& x); //addition operator: adds calling object with the object in argument
     Matrix operator-(); // Negation Operator(Multiplies Each Element of The Matrix By 1)
     Matrix operator-(const Matrix& x); // Subtraction Operator(Subtracts Corresponding Elements Of 2 Matrices With Equal Dimensions)
-    double& operator()(int row, int col); // Non-Const Indices Operator
-    const double& operator()(int row, int col) const;// Const Indices Operator
+    double operator()(int row, int col); // Non-Const Indices Operator
+    const double operator()(int row, int col) const;// Const Indices Operator
     Matrix& operator++(); // Overloaded Increment Operator
     bool operator==(const Matrix& x);//Overloaded Equality Operator
     bool operator!=(const Matrix& x);// Overloaded Inequality Operator
