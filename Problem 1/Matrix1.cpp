@@ -192,16 +192,17 @@ Matrix Matrix::operator*(const Matrix& x)
 
 // Prem Rajendran - b00084833
 
-Matrix::Matrix(int row=2,int col=3) //default parameterized constructor
+Matrix::Matrix(int row, int col) //default parameterized constructor
 {
     r = row;
     c = col;
-    mtx = new Matrix[r][c];
-    for(int i=0;i<r;i++)
+    mtx = new double * [row];
+    for (int i = 0; i < r; i++) //loop to dynamically allocate and initialize at the same time
     {
-        for(int j=0;j<c;j++)
+        for (int j = 0; j < c; j++)
         {
-            mtx[i][j] = new double;
+            mtx[i] = new double[col];
+            mtx[i][j] = 0;
         }
     }
 }
@@ -210,12 +211,12 @@ Matrix::Matrix(const Matrix& x) //copy constructor
 {
     r = x.r;
     c = x.c;
-    mtx = new Matrix[r][c];
-    for(int i=0;i<r;i++) //loop to dynamically allocate and copy at the same time
+    mtx = new double* [r];
+    for (int i = 0; i < r; i++) //loop to dynamically allocate and copy at the same time
     {
-        for(int j=0;j<c;j++)
+        for (int j = 0; j < c; j++)
         {
-            mtx[i][j] = new double;
+            mtx[i] = new double[c];
             mtx[i][j] = x.mtx[i][j];
         }
     }
@@ -223,36 +224,36 @@ Matrix::Matrix(const Matrix& x) //copy constructor
 
 Matrix Matrix::operator-(const Matrix& x) //subtraction operator to subtract from existing object
 {
-    if(r!=x.r || c!=x.c)
+    if (r != x.r || c != x.c)
     { //size check
-        cout<<"The matrices cannot be subtracted as they are of different sizes!";
+        cout << "The matrices cannot be subtracted as they are of different sizes!";
         exit(1);
     }
-    for(int i=0; i<r; i++)
+    for (int i = 0; i < r; i++)
     {
-        for(int j=0; j<c; j++)
+        for (int j = 0; j < c; j++)
         {
-            mtx[i][j]=mtx[i][j] - x.mtx[i][j];
+            mtx[i][j] = mtx[i][j] - x.mtx[i][j];
         }
     }
     return *this;
 }
 
-Matrix& Matrix::operator()(int row, int col) //lvalue indices operator
+double Matrix::operator()(int row, int col) //lvalue indices operator
 {
-    if(row < 0 || row > r || col < 0 || col > c)
+    if (row < 0 || row > r || col < 0 || col > c)
     {
-        cout<<"Invalid indices!!"<<endl;
+        cout << "Invalid indices!!" << endl;
         exit(0);
     }
     return mtx[row][col];
 }
 
-const Matrix& Matrix::operator()(int row, int col)
+const double Matrix::operator()(int row, int col) const //rvalue indices operator
 {
-    if(row < 0 || row > r || col < 0 || col > c)
+    if (row < 0 || row > r || col < 0 || col > c)
     {
-        cout<<"Invalid indices!!"<<endl;
+        cout << "Invalid indices!!" << endl;
         exit(0);
     }
     return mtx[row][col];
