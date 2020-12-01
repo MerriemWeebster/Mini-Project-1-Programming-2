@@ -62,7 +62,7 @@ bool Matrix::operator!=(const Matrix& x){
 
 //Author - Akchunya Chanchal
 
-Matrix Matrix::get_matrix_elements(int r,int c) // To Get The Valeu Of A Specific Element Of The Matrix
+Matrix Matrix::get_matrix_elements(int r,int c) // To Get The Value Of A Specific Element Of The Matrix
 {
     return this->mtx[r][c];
 }
