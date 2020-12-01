@@ -11,14 +11,17 @@ double stdev (const Matrix &); //Decleration of standard dev func
 
 int main()
 {
+	//Create 3 different matrices
 	Matrix a;
 	Matrix b(3, 3);
 	Matrix c(b);
 	
+	//Take in values for all 3
 	cin >> a;
 	cin >> b;
 	cin >> c;
 	
+	//Output sum and standard deviation for all 3 matrices
 	cout << "Sum of Matrix a: " << SumMatrixElements(a) << endl;
 	cout << "Standard Deviation of Matrix a: " << stdev(a) << endl;
 	cout << "Sum of Matrix b: " << SumMatrixElements(b) << endl;
