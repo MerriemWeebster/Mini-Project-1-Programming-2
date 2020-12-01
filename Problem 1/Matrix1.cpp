@@ -16,47 +16,48 @@ for(int i=0; i<r; i++){
     return *this; // for cascading
 }
  Matrix Matrix::operator+(const Matrix& x){
-if(r!=x.r || c!=x.c){ // checking size, if size does not match then function directly returns false
+    if(r!=x.r || c!=x.c){ // checking size, if size does not match then function directly returns false
       cout<<"SIZE Mismatch!";
       exit(1);
     }
     
     for(int i=0; i<r; i++){
-    for(int j=0; j<c; j++){ //Double for-loop to use all elements
-    mtx[i][j]=mtx[i][j]+x.mtx[i][j];
-    }
+        for(int j=0; j<c; j++){ //Double for-loop to use all elements
+            mtx[i][j]=mtx[i][j]+x.mtx[i][j];
+        }
     }
     return *this;
 }
 
 bool Matrix::operator==(const Matrix& x){
-        if(r!=x.r || c!=x.c){ // checking size, if size does not match then function directly returns false
-            cout<<"SIZE Mismatch!";
+    if(r!=x.r || c!=x.c){ // checking size, if size does not match then function directly returns false
+        cout<<"SIZE Mismatch!";
+        return false;
+    }
+    for(int i=0; i<r; i++){
+        for(int j=0; j<c; j++){ //double for loop to check every element
+        if(mtx[i][j]!=x.mtx[i][j]){ // condition, even if they are not equal once, loop will exit and false will be returned.
             return false;
         }
-        for(int i=0; i<r; i++){
-            for(int j=0; j<c; j++){ //double for loop to check every element
-            if(mtx[i][j]!=x.mtx[i][j]){ // condition, even if they are not equal once, loop will exit and false will be returned.
-                return false;
-            }
-            }   
-        }
-        return true; //otherwise, they are equal
+        }   
     }
+    return true; //otherwise, they are equal
+}
+
 bool Matrix::operator!=(const Matrix& x){
     if(r!=x.r || c!=x.c){ // checks if the size is equal. if they are not equal then function directly returns false.
-            cout<<"SIZE Mismatch!";
-            return false;
-        }
-        for(int i=0; i<r; i++){
-            for(int j=0; j<c; j++){
+        cout<<"SIZE Mismatch!";
+        return false;
+    }
+    for(int i=0; i<r; i++){
+        for(int j=0; j<c; j++){
             if(mtx[i][j]==x.mtx[i][j]){ // if they are equal even once, then the fucntion will exit loop and return false
                 return false;
             }
-            }   
-        }
-        return true; // otherwise they are not equal
-    }// Overloaded Inequality Operator
+        }   
+    }
+    return true; // otherwise they are not equal
+}// Overloaded Inequality Operator
 
 
 
@@ -90,18 +91,18 @@ Matrix& Matrix::operator--() // To Decrement Each Value In The Matrix
 const Matrix& Matrix::operator=(const Matrix& x) // To Assign The Values Of A Matrix to Another Matrix 
 {
     if (this == &x) // Checking If The Matrices Are The Same
-	 {
-		 return *this;
-	 }
+    {
+        return *this;
+    }
 
-	 if (this->r != x.r || this->c != x.c) // Checking To See If The Two Matrices Have Equal Dimensions
-	 {
-		 for(int i=0;i<this->r;++i)
-         {
-             delete [] this->mtx[r]; // We Free Up The Memory From The Heap By Deleting Row By Row The Existing Array
-         }
-         delete[] this->mtx; // We Delete The Intial Matrix
-         
+    if (this->r != x.r || this->c != x.c) // Checking To See If The Two Matrices Have Equal Dimensions
+    {
+        for(int i=0;i<this->r;++i)
+        {
+            delete [] this->mtx[r]; // We Free Up The Memory From The Heap By Deleting Row By Row The Existing Array
+        }
+        delete[] this->mtx; // We Delete The Intial Matrix
+        
         double**mtx = new double*[x.r];// We Intialise
         for(int i=0;i<x.r;++i)         // The New Array
         {                              // To The Size
@@ -110,17 +111,17 @@ const Matrix& Matrix::operator=(const Matrix& x) // To Assign The Values Of A Ma
         this->r = x.r; // Assigning The New No. Of Rows To The Calling Element
         this->c = x.c; // Assigning The New No. Of Columns To The Calling Element
 
+    }       
+
+    for (int i = 0; i < this->r; ++i)
+    {
+        for(int j=0;j< this->c;++j)
+        {
+            this->mtx[i][j] = x.mtx[i][j];
+        }
     }
 
-	 for (int i = 0; i < this->r; ++i)
-	 {
-		 for(int j=0;j< this->c;++j)
-         {
-             this->mtx[i][j] = x.mtx[i][j];
-         }
-	 }
-
-	 return *this;
+    return *this;
 }
 
 Matrix & Matrix::operator+= (const Matrix & x)
@@ -140,9 +141,6 @@ Matrix & Matrix::operator+= (const Matrix & x)
 	}
 
 	return *this;
-
-
-
 }
 
 Matrix & Matrix::operator-= (const Matrix & x)
