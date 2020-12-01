@@ -286,12 +286,12 @@ void Matrix::set_cols(int cols)
     c = cols;
 }
 
-int Matrix::get_rows()
+int Matrix::get_rows() const
 {
     return r;
 }
 
-int Matrix::get_cols()
+int Matrix::get_cols() const
 {
     return c;
 }
