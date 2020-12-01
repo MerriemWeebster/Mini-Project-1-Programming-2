@@ -286,24 +286,25 @@ void Matrix::set_cols(int cols)
     c = cols;
 }
 
-int Matrix::get_rows() const
+int Matrix::get_rows()
 {
     return r;
 }
 
-int Matrix::get_cols() const
+int Matrix::get_cols()
 {
     return c;
 }
 
 Matrix Matrix::operator*(double a) //scalar multiplication
 {
+    Matrix prod;
     for (int i = 0; i < r; i++) 
     {
         for (int j = 0; j < c; j++) 
         {
-            mtx[i][j] = mtx[i][j] * a;
+            prod.mtx[i][j] = mtx[i][j] * a;
         }
     }
-    return *this;
+    return prod;
 }
