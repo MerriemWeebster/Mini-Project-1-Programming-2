@@ -11,6 +11,7 @@ double stdev (const Matrix &); //Decleration of standard dev func
 
 int main()
 {
+
 	Matrix a;
 	Matrix b(3, 3);
 	Matrix c(b);
@@ -25,6 +26,7 @@ int main()
 	cout << "Standard Deviation of Matrix b: " << stdev(b) << endl;
 	cout << "Sum of Matrix c: " << SumMatrixElements(c) << endl;
 	cout << "Standard Deviation of Matrix c: " << stdev(c) << endl;
+   cout<<"---------------------------------Testing Out All Memebers Of The Matrix Class-------------------------------------------";
 	
     return 0;
 }
