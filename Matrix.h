@@ -79,6 +79,10 @@ public:
     bool operator!=(const Matrix& x);// Overloaded Inequality Operator
     Matrix get_matrix_elements(int, int);// Getter Function
     void set_matrix_elements(int r, int c, double val);// Setter Function
+    void set_rows(int rows); //set rows
+    void set_cols(int cols); //set cols
+    int get_rows(); //get rows
+    int get_cols(); //get cols
     Matrix& operator--();// Overloaded Decrement Operator
     const Matrix& operator=(const Matrix& x); // Overloaded Assignment Operator
     Matrix operator*(const Matrix& x); // Overloaded Multiplication Operator(Multiplies Each Row Element With The Corresponding Column Element Of The Second Matrix, They Must Be Of Compatible Sizes)

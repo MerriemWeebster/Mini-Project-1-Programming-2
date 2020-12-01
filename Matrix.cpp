@@ -275,3 +275,23 @@ const double& Matrix::operator()(int row, int col) const //rvalue indices operat
     }
     return mtx[row][col];
 }
+
+void Matrix::set_rows(int rows)
+{
+    r = rows;
+}
+
+void Matrix::set_cols(int cols)
+{
+    c = cols;
+}
+
+int Matrix::get_rows()
+{
+    return r;
+}
+
+int Matrix::get_cols()
+{
+    return c;
+}
