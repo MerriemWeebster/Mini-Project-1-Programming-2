@@ -86,6 +86,18 @@ Matrix& Matrix::operator--() // To Decrement Each Value In The Matrix
     return *this; // We Return The Address As The Function Is Cascading 
 }
 
+Matrix& Matrix::operator++() // To Increment Each Value In The Matrix 
+{
+    for(int i=0;i<r;++i) // To Loop Through The Rows
+    {
+        for(int j=0;j<c;++j) // To Loop Through The Columns
+        {
+            ++mtx[i][j]; // Increment The Element
+        }
+    }
+
+    return *this; // We Return The Address As The Function Is Cascading 
+}
 
 const Matrix& Matrix::operator=(const Matrix& x) // To Assign The Values Of A Matrix to Another Matrix 
 {
