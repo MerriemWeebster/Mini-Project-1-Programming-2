@@ -251,7 +251,7 @@ Matrix Matrix::operator-(const Matrix& x) //subtraction operator to subtract fro
     return *this;
 }
 
-double Matrix::operator()(int row, int col) //lvalue indices operator
+Matrix& Matrix::operator()(int row, int col) //lvalue indices operator
 {
     if (row < 0 || row > r || col < 0 || col > c)
     {
@@ -261,7 +261,7 @@ double Matrix::operator()(int row, int col) //lvalue indices operator
     return mtx[row][col];
 }
 
-const double Matrix::operator()(int row, int col) const //rvalue indices operator
+const Matrix& Matrix::operator()(int row, int col) const //rvalue indices operator
 {
     if (row < 0 || row > r || col < 0 || col > c)
     {
