@@ -47,6 +47,7 @@ bool Matrix::operator==(const Matrix& x) {
     }
     return true; //otherwise, they are equal
 }
+
 bool Matrix::operator!=(const Matrix& x) {
     if (r != x.r || c != x.c) { // checks if the size is equal. if they are not equal then function directly returns false.
         cout << "SIZE Mismatch!";
