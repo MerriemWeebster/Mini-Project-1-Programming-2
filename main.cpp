@@ -33,10 +33,14 @@ int main()
     cout<<"\n---------------------------------Testing Out All Memebers Of The Matrix Class-------------------------------------------\n\n";
 
     Matrix A(2, 2); //testing default constructor
-	cout << "Enter Matrix A : ";
+    Matrix B(A); //testing copy constructor
+    cout << "Enter Matrix A (Size:2x2):";
 	cin >> A; //testing extraction operator
+	cout<<"Enter Matrix A (Size:2x2):";
+	cin>> B;
 	cout << "\nMatrix A : " << endl << A << endl;
-	Matrix B(A); //testing copy constructor
+	cout << "\nMatrix B : " << endl << B << endl;
+	cout<<"Matrix A After A-B:"<<endl <<(A-B)<<endl; // Testing The subtraction operator
 	cout << "Matrix -B : " << endl << -B << endl; //testing negation operator
 	cout << "Element at row 1, column 0 of Matrix A : " << A(1, 0) << endl; //testing rvalue indices operator
 	A(0, 0) = 5; //testing lvalue indices operator
@@ -45,13 +49,24 @@ int main()
 	cout << "C = A gives us : " << endl << C << endl;
 	--C; //testing decrement operator
 	cout << "--C = " << endl << C << endl;
+	++C; //Testing The Increment Operator
+	cout << "++C = " << endl << C << endl;
+	cout << "A==B = "<<(A==B)<<endl; // Testing The Equality Operator
+	cout << "A!=B = "<<(A!=B)<<endl; // Testing The Inequality Operator
+	cout << "A * B = "<<endl<<(A*B)<<endl; // Testing The Matrix Multiplication Operator
+	cout<<" 5 * A = "<<endl<<(A*5)<<endl; // Testing The Scalar Multiplication Operator
 	B += A; //testing shorthand addition operator
 	cout << "B += A : " << endl << B << endl;
 	C -= B; //testing shorthand subtraction operator
 	cout << "C -= B : " << endl << C << endl;
-	
+    
+    
+    
     return 0;
 }
+	
+    
+
 
 double SumMatrixElements (const Matrix &m) //Implementation of sum func
 {
