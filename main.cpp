@@ -1,4 +1,3 @@
-//Author - Daniyal Khan b00082137
 //Problem 2 Solution
 
 #include <iostream>

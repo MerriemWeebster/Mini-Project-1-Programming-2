@@ -63,10 +63,6 @@ bool Matrix::operator!=(const Matrix& x) {
     return true; // otherwise they are not equal
 }// Overloaded Inequality Operator
 
-
-
-//Author - Akchunya Chanchal
-
 Matrix Matrix::get_matrix_elements(int r, int c) // To Get The Value Of A Specific Element Of The Matrix
 {
     return this->mtx[r][c];
