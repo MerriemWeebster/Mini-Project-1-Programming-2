@@ -73,7 +73,7 @@ int main()
 
 double SumMatrixElements (const Matrix &m) //Implementation of sum func
 {
-    int sum = 0; //Declare sum int
+    double sum = 0; //Declare sum double
     int r = m.get_rows(), c = m.get_cols(); //Store length of rows and cols in int r and c
 
     for(int i = 0; i < r; i++)
