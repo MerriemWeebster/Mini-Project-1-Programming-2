@@ -18,8 +18,11 @@ int main()
 	Matrix c(b);
 	
 	//Take in values for all 3
+	cout<<"Enter The Matrix a(Size:2x3):";
 	cin >> a;
+	cout<<"Enter The Matrix b(Size:3x3):";
 	cin >> b;
+	cout<<"Enter The Matrix c(Size:3x3):";
 	cin >> c;
 	
 	//Output sum and standard deviation for all 3 matrices
