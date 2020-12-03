@@ -54,8 +54,8 @@ int main()
 	cout << "--C = " << endl << C << endl;
 	++C; //Testing The Increment Operator
 	cout << "++C = " << endl << C << endl;
-	cout << "A==B = "<<(A==B)<<endl; // Testing The Equality Operator
-	cout << "A!=B = "<<(A!=B)<<endl; // Testing The Inequality Operator
+	cout << "A==B = "<<endl<<(A==B)<<endl; // Testing The Equality Operator
+	cout << "A!=B = "<<endl<<(A!=B)<<endl; // Testing The Inequality Operator
 	cout << "A * B = "<<endl<<(A*B)<<endl; // Testing The Matrix Multiplication Operator
 	cout<<" 5 * A = "<<endl<<(A*5)<<endl; // Testing The Scalar Multiplication Operator
 	B += A; //testing shorthand addition operator
