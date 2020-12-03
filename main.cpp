@@ -39,7 +39,7 @@ int main()
     Matrix B(A); //testing copy constructor
     cout << "Enter Matrix A (Size:2x2):";
 	cin >> A; //testing extraction operator
-	cout<<"Enter Matrix A (Size:2x2):";
+	cout<<"Enter Matrix B (Size:2x2):";
 	cin>> B;
 	cout << "\nMatrix A : " << endl << A << endl;
 	cout << "\nMatrix B : " << endl << B << endl;
