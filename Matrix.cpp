@@ -298,7 +298,7 @@ int Matrix::get_cols() const
 
 Matrix Matrix::operator*(double a) //scalar multiplication
 {
-    Matrix prod;
+    Matrix prod(this->r,this->c);
     for (int i = 0; i < r; i++) 
     {
         for (int j = 0; j < c; j++) 
