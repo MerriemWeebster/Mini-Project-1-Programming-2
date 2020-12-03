@@ -66,9 +66,6 @@ int main()
     
     return 0;
 }
-	
-    
-
 
 double SumMatrixElements (const Matrix &m) //Implementation of sum func
 {

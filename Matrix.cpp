@@ -2,7 +2,6 @@
 
 using namespace std;
 
-//SAADs PART
 #include "Matrix.h"
 Matrix::~Matrix() 
 { // destructor
@@ -202,8 +201,6 @@ Matrix Matrix::operator*(const Matrix& x)
 
     return product;
 }
-
-// Prem Rajendran - b00084833
 
 Matrix::Matrix(int row, int col) //default parameterized constructor
 {
