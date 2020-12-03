@@ -11,28 +11,7 @@ double stdev (const Matrix &); //Decleration of standard dev func
 
 int main()
 {
-
-	//Create 3 different matrices
-	Matrix a;
-	Matrix b(3, 3);
-	Matrix c(b);
-	
-	//Take in values for all 3
-	cout<<"Enter The Matrix a(Size:2x3):";
-	cin >> a;
-	cout<<"Enter The Matrix b(Size:3x3):";
-	cin >> b;
-	cout<<"Enter The Matrix c(Size:3x3):";
-	cin >> c;
-	
-	//Output sum and standard deviation for all 3 matrices
-	cout << "Sum of Matrix a: " << SumMatrixElements(a) << endl;
-	cout << "Standard Deviation of Matrix a: " << stdev(a) << endl;
-	cout << "Sum of Matrix b: " << SumMatrixElements(b) << endl;
-	cout << "Standard Deviation of Matrix b: " << stdev(b) << endl;
-	cout << "Sum of Matrix c: " << SumMatrixElements(c) << endl;
-	cout << "Standard Deviation of Matrix c: " << stdev(c) << endl;
-
+	cout<<"---------------------------------PROBLEM 1-------------------------------------------\n\n";
     cout<<"\n---------------------------------Testing Out All Memebers Of The Matrix Class-------------------------------------------\n\n";
 
     Matrix A(2, 2); //testing default constructor
@@ -63,7 +42,28 @@ int main()
 	C -= B; //testing shorthand subtraction operator
 	cout << "C -= B : " << endl << C << endl;
     
-    
+	cout<<"\\n---------------------------------PROBLEM 2-------------------------------------------\n\n";
+
+	//Create 3 different matrices
+	Matrix a;
+	Matrix b(3, 3);
+	Matrix c(b);
+	
+	//Take in values for all 3
+	cout<<"Enter The Matrix a(Size:2x3):";
+	cin >> a;
+	cout<<"Enter The Matrix b(Size:3x3):";
+	cin >> b;
+	cout<<"Enter The Matrix c(Size:3x3):";
+	cin >> c;
+	
+	//Output sum and standard deviation for all 3 matrices
+	cout << "Sum of Matrix a: " << SumMatrixElements(a) << endl;
+	cout << "Standard Deviation of Matrix a: " << stdev(a) << endl;
+	cout << "Sum of Matrix b: " << SumMatrixElements(b) << endl;
+	cout << "Standard Deviation of Matrix b: " << stdev(b) << endl;
+	cout << "Sum of Matrix c: " << SumMatrixElements(c) << endl;
+	cout << "Standard Deviation of Matrix c: " << stdev(c) << endl;
     
     return 0;
 }
